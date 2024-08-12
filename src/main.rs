@@ -31,12 +31,6 @@ struct Args {
 async fn main() {
     femme::start();
     
-    if ! stdout().is_terminal() {
-        eprintln!("{RED}Refusing to run in a non-terminal environment{RESET}");
-        eprintln!("This is done to prevent API scraping.");
-        exit(2)
-    }
-
     let args = Args::parse();
     let query = args.query.join(" ");
 
